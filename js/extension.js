@@ -3,8 +3,9 @@ checkPage = setInterval(() => {
     if (document.getElementById('breadcrumbBandeau').innerText != "Relevé de notes"){
         return false;
     }
-    averageCalculate()
-    console.log('good page')
+    const text = document.querySelector("#GInterface\\.Instances\\[1\\]\\.Instances\\[3\\]\\.idPied > div");
+    text.innerText = "Moyenne général : " + averageCalculate() + " / 20";
+    text.style.fontSize = "15px"
     clearInterval(checkPage);
 }, 1000);
 
@@ -28,12 +29,8 @@ function averageCalculate(){
                 }
 
             }
-            console.log('----------------')
-            console.log(averageCourse)
-            console.log(nbNotes)
-            console.log(averageCourse / nbNotes)
-            console.log('----------------')
-            averageAllCourse += averageCourse;
+
+            averageAllCourse += (averageCourse / nbNotes);
             nbCourse++;
         }
     
